@@ -42,7 +42,15 @@
         cylinder.rotation.y += 0.1;
         renderer.render(scene, camera);
       }
+
+
+      function change_color(){
+      cylinder.material.color.setHex(0xcc121e);
+      }
+
       animate();
     </script>
+
+    <button onclick="chage_color()"></button>
   </body>
 </html>
