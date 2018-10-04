@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Circle</title>
+    <style media="screen">
+      body{margin:0;}
+      canvas{width:100%; height:100%;}
+    </style>
+  </head>
+  <body>
+      <script src="three.min.js"></script>
+      <script>
+
+      //Her har vi udforsket hvordan man kan have op til flrer
+          scene = new THREE.Scene();
+          camera = new THREE.PerspectiveCamera(75, window.innerHeight / window.innerWidth, 0.1, 1000);
+          renderer = new THREE.WebGLRenderer();
+
+          renderer.setSize(window.innerHeight, window.innerWidth);
+          document.body.appendChild(renderer.domElement);
+
+          var light = new THREE.AmbientLight(0x404040);
+          scene.add(light);
+
+
+          //Laver cirkel 1
+          var geometry = new THREE.CylinderBufferGeometry( 5, 5, 4, 32 );
+          var material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+          var cylinder = new THREE.Mesh( geometry, material );
+          scene.add( cylinder );
+          camera.position.z = 50;
+
+          // Laver cirkel 2
+          var geometry2 = new THREE.CylinderBufferGeometry(5, 5, 0.5, 32);
+          var material2 = new THREE.MeshBasicMaterial({color: 0x42f453});
+          var cylinder2 = new THREE.Mesh(geometry2, material2);
+          cylinder2.position.y = 5;
+
+          scene.add(cylinder2)
+
+          //laver en kugle
+          var geometry3 = new THREE.SphereGeometry(5, 32, 32);
+          var material3 = new THREE.MeshBasicMaterial({color: 0xf9072f});
+          var sphere = new THREE.Mesh(geometry3, material3);
+
+          sphere.position.y = 14;
+
+          scene.add(sphere);
+
+          renderer.render(scene, camera);
+      </script>
+  </body>
+</html>
