@@ -12,10 +12,10 @@
   <body>
     <script src="three.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-    /*Dette program vil lave en masse cylinder oven på hinandem således at de kommer til at forme en vase. De vil gøre
+    /*
+    Dette program vil lave en masse cylinder oven på hinandem således at de kommer til at forme en vase. De vil gøre
     ved at bruge den naturlige logaritme til at finde radiusen af hver cylinder, og ved at bruge et for-loop til at stable dem på hiannden.
     Dette program er en spike solution som løser med hvordan kærneproblemet der omhandler
-
     */
 
       //sætter scenen og kameret op
@@ -23,9 +23,10 @@
       var camera = new THREE.PerspectiveCamera(75, window.innerHeight / window.innerWidth, 0.1, 1000);
       var renderer = new THREE.WebGLRenderer();
 
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(600, 600);
       document.body.appendChild(renderer.domElement);
 
+      //ændre kamerets position såledest at vasen kan ses.
       camera.position.z = 20;
       camera.position.y = 5;
 
@@ -35,9 +36,12 @@
       var light2 = new THREE.DirectionalLight(0x404040, 0.5);
       scene.add(light2);
 
-      //Dette er for-loopet som stabler en cylinderne ovenpå hinanden
+      /*
+      Dette er for-loopet som stabler en cylinderne ovenpå hinanden, cylinderne har f(i) = log(i) som radius
+      og 0.1 som højde og position (0,i,0).
+      */
       for (var i = 1; i < 10; i = i+0.1) {
-        var geometry = new THREE.CylinderBufferGeometry(Math.log(i), Math.log(i), 1, 32);
+        var geometry = new THREE.CylinderBufferGeometry(Math.log(i), Math.log(i), 0.1, 32);
         var material = new THREE.MeshLambertMaterial({color: 0x42f453});
         var cylinder = new THREE.Mesh(geometry, material);
 
