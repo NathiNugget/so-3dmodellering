@@ -36,6 +36,12 @@
       var light2 = new THREE.DirectionalLight(0x404040, 0.5);
       scene.add(light2);
 
+      var rumfang = 0;
+      function find_rumfang(r){
+        return Math.PI*(r**2)*0.1;
+
+      }
+
       /*
       Dette er for-loopet som stabler en cylinderne ovenpå hinanden, cylinderne har f(i) = log(i) som radius
       og 0.1 som højde og position (0,i,0).
@@ -47,9 +53,15 @@
 
         cylinder.position.y = i;
         scene.add(cylinder);
+        rumfang += find_rumfang(i);
+
+
       }
 
+
       renderer.render(scene, camera);
+      console.log(rumfang);
+
     </script>
   </body>
 </html>
