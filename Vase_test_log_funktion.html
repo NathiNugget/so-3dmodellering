@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Flere funktioner</title>
-
     <style media="screen">
       body{margin:0}
       canvas{width:100%; height: 100%}
@@ -23,13 +22,12 @@
       var camera = new THREE.PerspectiveCamera(75, window.innerHeight / window.innerWidth, 0.1, 1000);
       var renderer = new THREE.WebGLRenderer();
 
-      renderer.setSize(600, 600);
+      renderer.setSize(700, 700);
       document.body.appendChild(renderer.domElement);
 
       //ændre kamerets position såledest at vasen kan ses.
       camera.position.z = 20;
       camera.position.y = 5;
-
 
       var light = new THREE.AmbientLight(0x404040); // hvidt lys
 			scene.add(light);
@@ -39,9 +37,7 @@
       var rumfang = 0;
       function find_rumfang(r){
         return Math.PI*(r**2)*0.1;
-
       }
-
       /*
       Dette er for-loopet som stabler en cylinderne ovenpå hinanden, cylinderne har f(i) = log(i) som radius
       og 0.1 som højde og position (0,i,0).
@@ -54,14 +50,11 @@
         cylinder.position.y = i;
         scene.add(cylinder);
         rumfang += find_rumfang(i);
-
-
       }
-
 
       renderer.render(scene, camera);
       console.log(rumfang);
-
+      console.log(Math.log(10));
     </script>
   </body>
 </html>
