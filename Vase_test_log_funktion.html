@@ -42,6 +42,7 @@
       Dette er for-loopet som stabler en cylinderne ovenpå hinanden, cylinderne har f(i) = log(i) som radius
       og 0.1 som højde og position (0,i,0).
       */
+
       for (var i = 1; i < 10; i = i+0.1) {
         var geometry = new THREE.CylinderBufferGeometry(Math.log(i), Math.log(i), 0.1, 32);
         var material = new THREE.MeshLambertMaterial({color: 0x42f453});
@@ -54,7 +55,7 @@
 
       renderer.render(scene, camera);
       console.log(rumfang);
-      console.log(Math.log(10));
+      console.log(find_rumfang(Math.log(10)));
     </script>
   </body>
 </html>
