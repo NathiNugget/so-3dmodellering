@@ -43,24 +43,28 @@
       og 0.1 som højde og position (0,i,0).
       */
 
-      for (var i = 1; i < 10; i = i+0.1) {
-        var geometry = new THREE.CylinderBufferGeometry(Math.log(i), Math.log(i), 0.1, 32);
+      function myFunction(x){
+        return Math.log(x);
+      }
+
+      for (var i = 1; i <= 10; i +=0.1) {
+        var geometry = new THREE.CylinderBufferGeometry(myFunction(i), myFunction(i), 0.1, 32);
         var material = new THREE.MeshLambertMaterial({color: 0x42f453});
         var cylinder = new THREE.Mesh(geometry, material);
 
         cylinder.position.y = i;
         scene.add(cylinder);
-        rumfang += find_rumfang(i);
+        rumfang = rumfang + find_rumfang(i);
       }
 
       renderer.render(scene, camera);
       console.log(rumfang);
-      console.log(find_rumfang(Math.log(10)));
+      //console.log(find_rumfang(Math.log(10)));
     </script>
 
       t-værdi: <input type="text" name="fname"><br>
       : <input type="text" name="lname"><br>
       <input type="submit" value="Submit">
-    
+
   </body>
 </html>
