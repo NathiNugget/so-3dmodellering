@@ -48,24 +48,39 @@
       }
 
 
-      for (var i = 1; i <= 10; i +=0.1) {
-        var geometry = new THREE.CylinderBufferGeometry(myFunction(i), myFunction(i), 0.1, 32);
-        var material = new THREE.MeshLambertMaterial({color: 0x42f453});
-        var cylinder = new THREE.Mesh(geometry, material);
-
-        cylinder.position.y = i;
-        scene.add(cylinder);
-        rumfang = rumfang + find_rumfang(i);
-      }
+      var interval = 10;
 
       renderer.render(scene, camera);
       console.log(rumfang);
-      //console.log(find_rumfang(Math.log(10)));
+
+      function submit_interval(){
+        while(scene.children.length > 0){
+        scene.remove(scene.children[0]);
+        }
+
+        interval = document.getElementById('interval').value;
+
+
+
+        for (var i = 1; i <= interval; i +=0.1) {
+          var geometry = new THREE.CylinderBufferGeometry(myFunction(i), myFunction(i), 0.1, 32);
+          var material = new THREE.MeshLambertMaterial({color: 0x42f453});
+          var cylinder = new THREE.Mesh(geometry, material);
+
+          var light = new THREE.AmbientLight(0x404040); // hvidt lys
+          scene.add(light);
+          var light2 = new THREE.DirectionalLight(0x404040, 0.5);
+          scene.add(light2);
+
+          cylinder.position.y = i;
+          scene.add(cylinder);
+          rumfang = rumfang + find_rumfang(i);
+        }
+          renderer.render(scene, camera);
+      }
     </script>
-
-      t-værdi: <input type="text" name="fname"><br>
-      : <input type="text" name="lname"><br>
-      <input type="submit" value="Submit">
-
+    <br>
+    Enter interval:<input type="number" name="interval" id="interval">
+    <button type="button" name="button" onclick="submit_interval()">Submit</button>
   </body>
 </html>

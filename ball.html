@@ -8,7 +8,6 @@
       canvas{width: 100%; height: 100%;}
     </style>
   </head>
-
   <body>
     <script src="three.min.js"></script>
     <script>
@@ -27,14 +26,10 @@
 
       var light2 = new THREE.DirectionalLight(0x404040, 0.5);
 
-
       var geometry = new THREE.CylinderBufferGeometry( 4, 10, 25, 3 );
       var material = new THREE.MeshBasicMaterial( {color: 0xF3FFE2} );
       var cylinder = new THREE.Mesh( geometry, material );
       scene.add(cylinder);
-
-
-
 
       var animate = function (){
         requestAnimationFrame(animate)
@@ -42,7 +37,6 @@
         cylinder.rotation.y += 0.1;
         renderer.render(scene, camera);
       }
-
 
       function change_color(){
       cylinder.material.color.setHex(0xcc121e);
