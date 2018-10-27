@@ -28,13 +28,9 @@
         var cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
-
-
         var light = new THREE.AmbientLight(0x404040);
         scene.add(light);
         renderer.render(scene, camera);
-
-
 
       //Denne funktion fjerner alle objekter i scenen.
       function clear_scene(){

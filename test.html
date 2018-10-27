@@ -35,7 +35,6 @@
 			var light2 = new THREE.DirectionalLight(0x404040, 0.5);
 			scene.add(light2);
 
-
 			//Laver et animate-loop.
 			var animate = function (){
 				requestAnimationFrame(animate);
@@ -43,12 +42,11 @@
 				cube.rotation.x += 0.05;
 				cube.rotation.y += 0.05;
 
-
 				//render scenen og cameret sammen.
 				renderer.render(scene, camera);
-
 			}
 			animate();
+
 		</script>
 	</body>
 </html>

@@ -54,12 +54,11 @@
       console.log(rumfang);
 
       function submit_interval(){
+        //Laver et While-loop som sletter alle objekter i en scene.
         while(scene.children.length > 0){
         scene.remove(scene.children[0]);
         }
-
         interval = document.getElementById('interval').value;
-
 
 
         for (var i = 1; i <= interval; i +=0.1) {
@@ -67,16 +66,16 @@
           var material = new THREE.MeshLambertMaterial({color: 0x42f453});
           var cylinder = new THREE.Mesh(geometry, material);
 
-          var light = new THREE.AmbientLight(0x404040); // hvidt lys
-          scene.add(light);
-          var light2 = new THREE.DirectionalLight(0x404040, 0.5);
-          scene.add(light2);
-
           cylinder.position.y = i;
           scene.add(cylinder);
           rumfang = rumfang + find_rumfang(i);
         }
-          renderer.render(scene, camera);
+        var light = new THREE.AmbientLight(0x404040); // hvidt lys
+        scene.add(light);
+        var light2 = new THREE.DirectionalLight(0x404040, 0.5);
+        scene.add(light2);
+
+        renderer.render(scene, camera);
       }
     </script>
     <br>

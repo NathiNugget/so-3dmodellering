@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Spike solution</title>
+    <style media="screen">
+      body{margin:0}
+      canvas{height: 100%; width: 100%}
+    </style>
+  </head>
+  <body>
+    <script src="three.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    var renderer = new THREE.WebGLRenderer();
+
+    renderer.setSize(500, 500);
+    document.body.appendChild(renderer.domElement);
+
+    camera.position.z = 5;
+    camera.position.y = 5;
+
+    camera.lookAt(0,0,0);
+
+
+    var light = new THREE.AmbientLight(0x404040);
+    scene.add(light);
+
+    var light2 = new THREE.DirectionalLight(0x404040, 0.5);
+    scene.add(light2);
+
+
+
+    var geometry = new THREE.BoxGeometry(1, 1, 1);
+    var material = new THREE.MeshLambertMaterial({color: 0x83b5ab});
+    var cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    var geometry2 = new THREE.BoxGeometry(10, 0.1, 10);
+    var material2 = new THREE.MeshBasicMaterial({color: 0x474B52});
+    var floor = new THREE.Mesh(geometry2, material2);
+    scene.add(floor);
+
+    floor.position.y = -0.5;
+
+
+
+    renderer.render(scene, camera);
+
+    </script>
+  </body>
+</html>
