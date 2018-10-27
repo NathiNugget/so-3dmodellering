@@ -23,10 +23,9 @@
 
     camera.lookAt(0,0,0);
 
-
+    //Laver lyset lyset
     var light = new THREE.AmbientLight(0x404040);
     scene.add(light);
-
     var light2 = new THREE.DirectionalLight(0x404040, 0.5);
     scene.add(light2);
 
@@ -37,6 +36,7 @@
     var cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
+    //Laver og tilføjer selve gulvet
     var geometry2 = new THREE.BoxGeometry(10, 0.1, 10);
     var material2 = new THREE.MeshBasicMaterial({color: 0x474B52});
     var floor = new THREE.Mesh(geometry2, material2);
