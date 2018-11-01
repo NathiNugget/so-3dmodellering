@@ -8,7 +8,7 @@ q
   <style media="screen">
     body{margin:0}
       canvas{width:100%; height: 100%}
-    </style>
+    </style>212
 </head>
 
 <body>
@@ -22,7 +22,7 @@ q
 
     //sætter scenen og kameret op
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75, window.innerHeight / window.innerWidth, 0.1, 1000);
+    var camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
     var renderer = new THREE.WebGLRenderer();
 
     renderer.setSize(700, 700);
@@ -45,7 +45,7 @@ q
     }
     /*
     Dette er for-loopet som stabler en cylinderne ovenpå hinanden, cylinderne har f(i) = log(i) som radius
-    og 0.1 som højde og position (0,i,0).
+    og 0.1 som højde og position (0,i,0). 
     */
 
     function myFunction(x) {

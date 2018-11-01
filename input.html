@@ -8,14 +8,16 @@
   <input type="text" name="t-værdi" id="beef">
   <input type="text" name="r-værdi" id="r_value">
   <button id="oh boi" onclick="myFunction()"> Submit</button>
-  <p id="shit"></p>
+  <p id="text"></p>
   <div>
     <script>
     function myFunction(){
+      // Finder værdien som er sat i html input-feltet med id'en r_value
       r_value = document.getElementById("r_value").value;
+      // Finder værdien som er sat i html input-feltet med id'en beef_value
       beef_value = document.getElementById("beef").value;
-      document.getElementById("shit").innerHTML = ("Det tal du har tastet " + r_value + beef_value);
-
+      // Indsætter teksten i html dommen
+      document.getElementById("text").innerHTML = ("Det tal du har tastet " + r_value + beef_value);
     }
     </script>
   </div>
