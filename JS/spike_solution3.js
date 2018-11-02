@@ -2,16 +2,16 @@
 
 // De tre funktioner som vi bruger til at finde rationen
 function interval_1(x){
-  return Math.log(x) + 2.3;
+  return Math.log(x) + 3;
 }
 
 function interval_2(x){
-  return Math.tanh(x-1) + 2.3;
+  return Math.tanh(x-1) + 3;
 
 }
 
 function interval_3(x){
-  return Math.sin(x - 5) + 2.3;
+  return Math.sin(x - 5) + 3;
 }
 
 //sætter cameraet go renderen op
