@@ -47,7 +47,6 @@ Dette program er en spike solution som løser med hvordan kærneproblemet der om
     }
     interval = document.getElementById('interval').value;
 
-
     for (var i = 1; i <= interval; i +=0.1) {
       var geometry = new THREE.CylinderBufferGeometry(myFunction(i), myFunction(i), 0.1, 32);
       var material = new THREE.MeshLambertMaterial({color: 0x42f453});
@@ -61,6 +60,6 @@ Dette program er en spike solution som løser med hvordan kærneproblemet der om
     scene.add(light);
     var light2 = new THREE.DirectionalLight(0x404040, 0.5);
     scene.add(light2);
-
+    // renderere scenen
     renderer.render(scene, camera);
   }
